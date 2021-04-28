@@ -1,0 +1,20 @@
+{
+  "name": "static-node.js-and-express-site",
+  "version": "1.0.0",
+  "description": "In this project, I created a portfolio site to showcase the projects I've built. The site will contain a modern landing page, an about page where I'll have a chance to share contact info, my elevator pitch and talk a little about myself, and a series of project pages to show off and detail my first five projects from the Treehouse techdegree.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebhargro/static-node.js-and-express-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebhargro/static-node.js-and-express-site/issues"
+  },
+  "homepage": "https://github.com/ebhargro/static-node.js-and-express-site#readme"
+}
