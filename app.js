@@ -6,7 +6,7 @@
 //Adding variables to require the necessary dependencies
 const express = require('express');
 const app = express();
-const data = require('./data.json');
+const { projects } = require('./data.json');
 
 //Setting view engine to Pug
 app.set('view engine', 'pug');
@@ -19,17 +19,17 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     
     res.render('index');
-    res.locals = data.projects;
+    res.locals = projects;
 });
     //About route
 app.get('/about', (req, res) => {
     res.render('about');
 });
     //Dynamic project routes
-app.get('/projects/:id}', (req, res) => {
+app.get('/projects/:id', (req, res) => {
     const id = req.params.id;
     const proj = projects[id];
-    res.render('project', proj);
+    res.render('projects', proj);
 });
 //Starting server
 app.listen(3000, () => {
