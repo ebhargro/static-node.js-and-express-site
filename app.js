@@ -6,18 +6,18 @@
 //Adding variables to require the necessary dependencies
 const express = require('express');
 const app = express();
-const data = require('data');
-const path = require('path');
+const data = require('./data.json');
 
 //Setting view engine to Pug
 app.set('view engine', 'pug');
 
 //Using a static route and the express.static method to serve te static files located in the public folder
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 
 //Setting up routes
     //Index route
 app.get('/', (req, res) => {
+    
     res.render('index');
     res.locals = data.projects;
 });
@@ -26,12 +26,29 @@ app.get('/about', (req, res) => {
     res.render('about');
 });
     //Dynamic project routes
-app.get('/project/:id}', (req, res) => {
-    const { id } = req.params;
-    const proj = data[id];
+app.get('/projects/:id}', (req, res) => {
+    const id = req.params.id;
+    const proj = projects[id];
     res.render('project', proj);
 });
-
+//Starting server
 app.listen(3000, () => {
-    console.log('This app is running on localhost:3000!');
+    console.log('This app is running on localhost:3000.');
 });
+//Handling errors - undefined routes
+if ('./noroute' || './project/noroute') {
+    const undefinedError = new Error();
+    undefinedError.status = 404;
+    undefMessage = "Sorry, but you have navigated to a non-existent page!";
+    undefinedError.message = undefMessage;
+    console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
+};
+
+//Handling errors - global error 
+app.use((req, res, next) => {
+    const err = new Error('Uh-oh! ');
+    err.status = 500;
+    const globalErr = "Looks like there is an error here. 😱";
+    err.message = globalErr;
+    next();
+})
