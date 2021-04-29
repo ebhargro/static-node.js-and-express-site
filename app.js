@@ -12,7 +12,7 @@ const data = require('./data.json');
 app.set('view engine', 'pug');
 
 //Using a static route and the express.static method to serve te static files located in the public folder
-app.use('/.public', express.static('public'));
+app.use(express.static('public'));
 
 //Setting up routes
     //Index route
