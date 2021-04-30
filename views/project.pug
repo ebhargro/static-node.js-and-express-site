@@ -13,7 +13,7 @@ block content
 
         
         h1= `${project.project_name}`
-        
+
         p= `Description: ${project.description}`
 
       .project-tech-links-box.box
@@ -31,7 +31,7 @@ block content
       //- Replace the URLs in the src attributes below with interpolated template literals to dynamically add your project images, and add descriptions to the alt attributes
       img.project-img(src=`${project.image_urls[0]}`, alt='Screenshot of a web browser')
       img.project-img(src=`${project.image_urls[1]}`, alt='Screenshot of a web browser')
-      img.project-img(src=`${project.image_urls[2]}`, alt='Screenshot of a web browser')
+      
 
     nav.nav
       a(href='/')

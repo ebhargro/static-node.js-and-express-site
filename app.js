@@ -48,10 +48,10 @@ app.listen(3000, () => {
     console.log('This app is running on localhost:3000.');
 });
 
-// // //Handling errors - global error 
-// app.use((err, req, res, next) => {
-//     err.status = 500;
-//     const globalErr = "Looks like there is an error here. 😱";
-//     err.message = globalErr;
-//     res.render(err.status);
-// });
+// //Handling errors - global error 
+app.use((err, req, res, next) => {
+    err.status = 500;
+    const globalErr = "Looks like there is an error here. 😱";
+    err.message = globalErr;
+    res.render(err.status);
+});
