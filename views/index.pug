@@ -12,10 +12,11 @@ block content
     .projects-box.box.grid
 
       
-      each project in projects  
+  each project in projects  
 
-        .cell
-          a(href=`/projects/${data.id}`)
-            img.thumbnail(src=`${data.image_urls}`, alt='Screenshot of project')
-            h5=project.project_name
+    .cell
+      a(href=`/project/${project.id}`)
+        h5=project.project_name
+        img.thumbnail(src=`${project.image_urls[1]}`, alt='Screenshot of project')
+        
 

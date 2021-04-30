@@ -4,9 +4,10 @@
 
 
 //Adding variables to require the necessary dependencies
+const path = require('path');
 const express = require('express');
-const app = express();
 const { projects } = require('./data.json');
+const app = express();
 
 //Setting view engine to Pug
 app.set('view engine', 'pug');
@@ -16,39 +17,41 @@ app.use(express.static('public'));
 
 //Setting up routes
     //Index route
-app.get('/', (req, res) => {
-    
-    res.render('index');
-    res.locals = projects;
+app.get('/', (req, res, next) => {
+    res.render('index', {projects});
 });
     //About route
 app.get('/about', (req, res) => {
     res.render('about');
 });
     //Dynamic project routes
-app.get('/projects/:id', (req, res) => {
+app.get('/project/:id', (req, res) => {
     const id = req.params.id;
-    const proj = projects[id];
-    res.render('projects', proj);
-});
+    const project = projects[id];
+    if (project) {
+        res.locals.data = projects;
+        res.render('project', {project});
+    } else {
+        const undefinedError = new Error();
+        undefinedError.status = 404;
+        undefMessage = "Sorry, but you have navigated to a non-existent page!";
+        undefinedError.message = undefMessage;
+        console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
+        next(undefinedError);
+        }
+    });
+    
+// });
+
 //Starting server
 app.listen(3000, () => {
     console.log('This app is running on localhost:3000.');
 });
-//Handling errors - undefined routes
-if ('./noroute' || './project/noroute') {
-    const undefinedError = new Error();
-    undefinedError.status = 404;
-    undefMessage = "Sorry, but you have navigated to a non-existent page!";
-    undefinedError.message = undefMessage;
-    console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
-};
 
-//Handling errors - global error 
-app.use((req, res, next) => {
-    const err = new Error('Uh-oh! ');
-    err.status = 500;
-    const globalErr = "Looks like there is an error here. 😱";
-    err.message = globalErr;
-    next();
-})
+// // //Handling errors - global error 
+// app.use((err, req, res, next) => {
+//     err.status = 500;
+//     const globalErr = "Looks like there is an error here. 😱";
+//     err.message = globalErr;
+//     res.render(err.status);
+// });

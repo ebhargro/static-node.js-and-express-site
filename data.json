@@ -7,7 +7,7 @@
             "technologies" : ["JavaScript", "CSS", "HTML"],
             "live_link" : "https://hopeful-swirles-79566e.netlify.app/",
             "github_link" : "https://github.com/ebhargro/interactive-form",
-            "image_urls" : ["images/fullstack.jpg", "images/fullstack2.png"]
+            "image_urls" : ["/public/images/fullstack.jpg", "images/fullstack2.png"]
         },
         {
             "id" : "1",
@@ -16,16 +16,16 @@
             "technologies" : ["JavaScript", "CSS", "HTML"],
             "live_link" : "https://upbeat-rosalind-36c81a.netlify.app/",
             "github_link" : "https://github.com/ebhargro/game-show-app",
-            "image_urls" : ["images/phrasehunter1.jpg", "images/phrasehunter2.jpg", "images/phrasehunter3.jpg"]
+            "image_urls" : ["/public/images/phrasehunter1.jpg", "images/phrasehunter2.jpg", "images/phrasehunter3.jpg"]
         },
         {
-            "id" : "",
-            "project_name" : "2",
+            "id" : "2",
+            "project_name" : "API Employee Directory",
             "description" : "This is an app for a fictional company called Awesome Startup, a distributed company with remote employees working all over the world. I used the Random User Generator API (https://randomuser.me/) to grab information for 12 random “employees,” and usec that data to build a prototype for an Awesome Startup employee directory.",
             "technologies" : ["JavaScript", "CSS", "HTML"],
             "live_link" : "https://compassionate-roentgen-0c0ed0.netlify.app/",
             "github_link" : "https://github.com/ebhargro/public-api-requests",
-            "image_urls" : ["images/api1.jpg", "images/api2.jpg"]
+            "image_urls" : ["/public/images/api1.jpg", "images/api2.jpg"]
         }
     ]
 
