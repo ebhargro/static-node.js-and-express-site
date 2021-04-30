@@ -7,8 +7,8 @@
             "technologies" : ["JavaScript", "CSS", "HTML"],
             "live_link" : "https://hopeful-swirles-79566e.netlify.app/",
             "github_link" : "https://github.com/ebhargro/interactive-form",
-            "image_urls" : ["/public/images/fullstack.jpg",
-                             "/public/images/fullstack2.png"]
+            "image_urls" : ["/static/images/fullstack.jpg",
+                             "/static/images/fullstack2.png"]
         },
         {
             "id" : "1",
@@ -17,9 +17,9 @@
             "technologies" : ["JavaScript", "CSS", "OOP", "HTML"],
             "live_link" : "https://upbeat-rosalind-36c81a.netlify.app/",
             "github_link" : "https://github.com/ebhargro/game-show-app",
-            "image_urls" : ["/public/images/phrasehunter1.jpg",
-                             "/public/images/phrasehunter2.jpg",
-                             "/public/images/phrasehunter3.jpg"]
+            "image_urls" : ["/static/images/phrasehunter1.jpg",
+                             "/static/images/phrasehunter2.jpg",
+                             "/static/images/phrasehunter3.jpg"]
         },
         {
             "id" : "2",
@@ -28,9 +28,30 @@
             "technologies" : ["JavaScript", "CSS", "HTML"],
             "live_link" : "https://compassionate-roentgen-0c0ed0.netlify.app/",
             "github_link" : "https://github.com/ebhargro/public-api-requests",
-            "image_urls" : ["/public/images/api1.jpg",
-                            "/public/images/api2.jpg"]
+            "image_urls" : ["/static/images/api1.jpg",
+                            "/static/images/api2.jpg"]
+        },
+        {
+            "id" : "3",
+            "project_name" : "Random Quote Generator",
+            "description" : "Generates random quotes spoken or written by famous Black women.",
+            "technologies" : ["JavaScript", "CSS", "HTML"],
+            "live_link" : "https://cocky-wozniak-98be0f.netlify.app/",
+            "github_link" : "https://github.com/ebhargro/random-quote-generator",
+            "image_urls" : ["/static/images/quote.png",
+                            "/static/images/quote2.png"]
+        },
+        {
+            "id" : "4",
+            "project_name" : "Student Directory",
+            "description" : "This project shows data pagination and filtering.",
+            "technologies" : ["JavaScript", "CSS", "HTML"],
+            "live_link" : "https://elastic-jackson-c88711.netlify.app/",
+            "github_link" : "https://github.com/ebhargro/data-pagination-and-filtering-v1",
+            "image_urls" : ["/static/images/students.png",
+                            "static/images/students2.png"]
         }
+
     ]
 
 }

@@ -21,7 +21,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
-  background: #fefefe;
+  background: #d19262;
   background: #000;
   transform: translateX(0px);
   transition: all 0.4s ease-out;
@@ -63,7 +63,7 @@ a {
   min-width: 320px;
   height: 100%;
   min-height: 100%;
-  background: #fefefe;
+  background: #b78e8b;
 }
 
 .flex-row-wrap {
