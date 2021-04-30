@@ -33,8 +33,6 @@ app.get('/project/:id', (req, res) => {
         res.render('project', {project});
     }    
     });
-    
-// });
 
 //Starting server
 app.listen(3000, () => {
