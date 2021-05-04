@@ -14,9 +14,11 @@ block content
       
   each project in projects  
 
-    .cell
-      a(href=`/project/${project.id}`)
-        h5=project.project_name
-        img.thumbnail(src=`${project.image_urls[1]}`, alt='Screenshot of project')
-        
+    article.portfolio-project-thumbs
+      .projects-box.box.grid
+        .cell
+          a(href=`/project/${project.id}`)
+            h5=project.project_name
+            img.thumbnail(src=`${project.image_urls[1]}`, alt='Screenshot of project')
+          
 

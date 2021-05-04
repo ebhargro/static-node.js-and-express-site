@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+
+    nav.nav
+        a(href='/')
+            span &larr;
+                Home
+    
+        section
+            h1= `${err.message}`
+            h5 = `Error: ${err.status}`
+
+    nav.nav
+        a(href='/')
+            span &larr;
+                Home
+    

@@ -40,19 +40,29 @@ app.listen(3000, () => {
 });
 
 //Handling errors - 404 error
-app.use((err, req, res, next) => {
-    const undefinedError = new Error();
-    undefinedError.status = 404;
-    undefMessage = "Sorry, but you have navigated to a non-existent page!";
-    undefinedError.message = undefMessage;
-    console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
-    next(undefinedError);
-});
+if (err.status === 404) {
+    app.use((req, res, next) => {
+        const undefinedError = new Error();
+        undefinedError.status = 404;
+        undefMessage = "Sorry, but you have navigated to a non-existent page!";
+        undefinedError.message = undefMessage;
+        console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
+        res.render('page-not-found', {err});
+        next(undefinedError);
+
+    });
+}
+
 
 // //Handling errors - global error 
 app.use((err, req, res, next) => {
+    if (err) {
     err.status = 500;
     const globalErr = "Looks like there is an error here. 😱";
     err.message = globalErr;
-    res.render(err.message);
+    console.log(globalErr, err);
+    res.render('error', {err});
+    }
 });
+
+module.exports = app;
