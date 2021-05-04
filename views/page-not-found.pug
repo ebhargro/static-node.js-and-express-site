@@ -1,4 +1,4 @@
-extends layout 
+extends layout.pug
 
 block content 
 
@@ -9,7 +9,7 @@ block content
     
         section
             h1= `${err.message}`
-            h5 = `Error: ${err.status}`
+            h5= `Error: ${err.status}`
 
     nav.nav
         a(href='/')

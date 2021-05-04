@@ -25,44 +25,51 @@ app.get('/about', (req, res) => {
     res.render('about');
 });
     //Dynamic project routes
-app.get('/project/:id', (req, res) => {
+app.get('/project/:id', (req, res, next) => {
     const id = req.params.id;
     const project = projects[id];
     if (project) {
         res.locals.data = projects;
-        res.render('project', {project});
-    }    
+        return res.render('project', {project});
+    }  else {
+        const err = new Error();
+        err.status = 404;
+        err.message = "Sorry, you have navigated to a non-existent page!"
+        res.render('page-not-found');
+        next(err);
+    }
     });
 
-//Starting server
+//Handling errors 
+    app.use((req, res, next) => {
+        const err = new Error();
+        err.status = 404;
+        err.message = "Sorry, you have navigated to a non-existent page!";
+        res.status(404);
+        res.render('page-not-found', {err});
+    });
+
+
+    app.use((err, req, res, next) => {
+        //404 error
+        if (err.status === 404) {
+            err.message = "Sorry, you have navigated to a non-existent page!";
+            console.log("Sorry, you have navigated to a non-existent page!");
+            res.status(404);
+            res.render('page-not-found', {err});
+        } 
+        //Global 500 error
+        else {
+            err.message = err.message || "Uh oh! Looks like there is a server error here. 😱";
+            console.log("500: Internal Server Error");
+            res.status(err.status || 500);
+            res.render('error', {err});
+            }
+        next(err);
+        });
+       
+
+    //Starting server
 app.listen(3000, () => {
     console.log('This app is running on localhost:3000.');
 });
-
-//Handling errors - 404 error
-if (err.status === 404) {
-    app.use((req, res, next) => {
-        const undefinedError = new Error();
-        undefinedError.status = 404;
-        undefMessage = "Sorry, but you have navigated to a non-existent page!";
-        undefinedError.message = undefMessage;
-        console.log(`${undefMessage} Error Status: ${undefinedError.status}.`);
-        res.render('page-not-found', {err});
-        next(undefinedError);
-
-    });
-}
-
-
-// //Handling errors - global error 
-app.use((err, req, res, next) => {
-    if (err) {
-    err.status = 500;
-    const globalErr = "Looks like there is an error here. 😱";
-    err.message = globalErr;
-    console.log(globalErr, err);
-    res.render('error', {err});
-    }
-});
-
-module.exports = app;
