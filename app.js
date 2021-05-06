@@ -35,6 +35,7 @@ app.get('/project/:id', (req, res, next) => {
         const err = new Error();
         err.status = 404;
         err.message = "Sorry, you have navigated to a non-existent page!"
+        console.log("Sorry, you have navigated to a non-existent page!");
         res.render('page-not-found');
         next(err);
     }
@@ -45,6 +46,7 @@ app.get('/project/:id', (req, res, next) => {
         const err = new Error();
         err.status = 404;
         err.message = "Sorry, you have navigated to a non-existent page!";
+        console.log("Sorry, you have navigated to a non-existent page!");
         res.status(404);
         res.render('page-not-found', {err});
     });
@@ -60,12 +62,11 @@ app.get('/project/:id', (req, res, next) => {
         } 
         //Global 500 error
         else {
-            err.message = err.message || "Uh oh! Looks like there is a server error here. 😱";
-            console.log("500: Internal Server Error");
+            err.message = "Uh oh! Looks like there is a server error here. 😱";
+            console.log("Uh oh! Looks like there is a server error here. 😱 500: Internal Server Error");
             res.status(err.status || 500);
             res.render('error', {err});
             }
-        next(err);
         });
        
 
